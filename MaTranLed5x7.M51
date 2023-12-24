@@ -1,0 +1,109 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/11/2023  15:47:51  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE main.obj, .\Delay.obj TO MaTranLed5x7 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  .\Delay.obj (DELAY)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  MaTranLed5x7 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         _DATA_GROUP_
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     005CH     UNIT         ?PR?MAIN?MAIN
+            CODE    005FH     004DH     UNIT         ?CO?MAIN
+            CODE    00ACH     0020H     UNIT         ?PR?_DELAY_MS?DELAY
+            CODE    00CCH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   MaTranLed5x7 (MAIN)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                  0008H    0003H
+  +--> ?CO?MAIN
+  +--> ?PR?_DELAY_MS?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  MaTranLed5x7 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0066H         PUBLIC        Font5x7
+  D:0080H         PUBLIC        P0
+  D:00B0H         PUBLIC        P3
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/11/2023  15:47:51  PAGE 2
+
+
+  C:005FH         PUBLIC        Font5x7_0
+  C:0003H         PUBLIC        main
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:0009H         SYMBOL        j
+  D:000AH         SYMBOL        cnt
+  -------         ENDDO         
+  C:0003H         LINE#         17
+  C:0003H         LINE#         19
+  C:0003H         LINE#         21
+  C:0006H         LINE#         22
+  C:0006H         LINE#         23
+  C:0009H         LINE#         24
+  C:0009H         LINE#         25
+  C:000CH         LINE#         26
+  C:000CH         LINE#         27
+  C:002AH         LINE#         28
+  C:002DH         LINE#         29
+  C:0033H         LINE#         30
+  C:0042H         LINE#         31
+  C:004BH         LINE#         32
+  C:0054H         LINE#         33
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:00ACH         PUBLIC        _Delay_ms
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        x
+  D:0002H         SYMBOL        y
+  -------         ENDDO         
+  C:00ACH         LINE#         3
+  C:00ACH         LINE#         5
+  C:00B6H         LINE#         6
+  C:00C4H         LINE#         7
+  C:00CBH         LINE#         8
+  -------         ENDPROC       _DELAY_MS
+  -------         ENDMOD        DELAY
+
+Program Size: data=12.0 xdata=0 code=216
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
